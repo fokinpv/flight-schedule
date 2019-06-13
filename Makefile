@@ -24,6 +24,9 @@ migrate:
 runserver:
 	python manage.py $@ 0:8000 --settings=$(PROJECT_NAME).settings.$(ENV)
 
+test:
+	python manage.py $@ --settings=$(PROJECT_NAME).settings.$(ENV)
+
 makemigrations:
 	python manage.py $@ --settings=$(PROJECT_NAME).settings.$(ENV)
 
