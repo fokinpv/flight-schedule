@@ -5,19 +5,17 @@ class UserTest(TestCase):
 
     def setUp(self):
 
-        test_user1 = User.objects.create(
+        test_user1 = User.objects.create_user(
             username='testuser1',
-            email='testuser1@test.com'
+            email='testuser1@test.com',
+            password='qwer1234'
         )
 
-        test_user1.set_password('qwer1234')
-
-        test_user2 = User.objects.create(
+        test_user2 = User.objects.create_user(
             username='testuser2',
-            email='testuser2@test.com'
+            email='testuser2@test.com',
+            password='1234qrew'
         )
-
-        test_user1.set_password('1234qrew')
 
     def test_get_users(self):
 
