@@ -8,3 +8,4 @@ logs
 backup
 .venv
 venv
+.coverage

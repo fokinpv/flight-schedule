@@ -27,6 +27,7 @@ DJANGO_APPS =[
 ]
 
 PROJECT_APPS = [
+    'apps.flights',
     'apps.users',
 ]
 
