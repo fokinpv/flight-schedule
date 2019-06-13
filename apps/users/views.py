@@ -1,10 +1,15 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes
+)
 from rest_framework.response import Response
 from rest_framework import status
 from apps.users.serializers import UserSerializer
 
-# Create your views here.
 @api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
 def register_user(request):
     data = {
         'username': request.data.get('username'),
