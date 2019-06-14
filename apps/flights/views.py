@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from apps.flights.models import Flight
 from apps.flights.serializers import FlightSerializer
+from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,7 +9,7 @@ from django.http import Http404
 from datetime import datetime
 
 # Create your views here.
-class FlightList(APIView):
+class FlightList(APIView, LimitOffsetPagination):
 
     @staticmethod
     def get_object(pk):
@@ -67,12 +68,17 @@ class FlightList(APIView):
         if bool(errors):
             return Response(errors, status=status.HTTP_400_BAD_REQUEST)  
 
-        flights = Flight.objects.filter(**filter_params)
-        serializer = FlightSerializer(flights, many=True)
+        queryset = Flight.objects.filter(**filter_params)
 
-        data = serializer.data
-        if len(data) == 0:
+        if len(queryset) == 0:
             return Response(status=status.HTTP_404_NOT_FOUND)  
+
+        page = self.paginate_queryset(queryset, request)
+        if page is not None:
+            serializer = FlightSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = FlightSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):

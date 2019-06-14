@@ -133,9 +133,9 @@ class FlightListTest(TestCase):
 
         flights = json.loads(flights_res.content)
 
-        self.assertEqual(len(flights), 1)
+        self.assertEqual(len(flights["results"]), 1)
 
-        self.assertEqual(flights[0]['flight_name'], 'thr-osd')
+        self.assertEqual(flights["results"][0]['flight_name'], 'thr-osd')
 
     def test_search_flights_with_invalid_flight_name(self):
 
@@ -196,7 +196,7 @@ class FlightListTest(TestCase):
 
         flights = json.loads(flights_res.content)
 
-        self.assertEqual(len(flights), 2)    
+        self.assertEqual(len(flights["results"]), 2)    
 
     def test_search_flights_with_invalid_departure(self):
 
@@ -250,7 +250,7 @@ class FlightListTest(TestCase):
 
         flights = json.loads(flights_res.content)
 
-        self.assertEqual(len(flights), 2)    
+        self.assertEqual(len(flights["results"]), 2)    
 
     def test_search_flights_with_invalid_destination(self):
 
