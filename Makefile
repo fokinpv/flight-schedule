@@ -4,6 +4,7 @@ ENV=dev
 APP_NAME=
 APP_FULLNAME=$(APPS_DIRECTORY).$(APP_NAME)
 SETTINGS_FILE=$(PROJECT_NAME)/settings/base.py
+CONTAINER_BUILD_IMAGE=flights
 
 export DJANGO_SETTINGS_MODULE := $(PROJECT_NAME).settings.$(ENV)
 
@@ -26,6 +27,9 @@ runserver:
 
 test:
 	python manage.py $@ --settings=$(PROJECT_NAME).settings.$(ENV) -v 3
+
+build:
+	docker build -t $(CONTAINER_BUILD_IMAGE) .	
 
 makemigrations:
 	python manage.py $@ --settings=$(PROJECT_NAME).settings.$(ENV)
