@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mirzakhany/flight-schedule.svg?branch=master)](https://travis-ci.org/mirzakhany/flight-schedule)
+
 Flight Schedule
 ===
 a simple service to manage and search in flight schedules with simple auth system 
