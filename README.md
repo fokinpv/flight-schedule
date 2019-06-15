@@ -4,6 +4,9 @@ Flight Schedule
 ===
 a simple service to manage and search in flight schedules with simple auth system 
 
+application url on heroku
+
+    https://flight-schedule-service.herokuapp.com/
 
 In this project I used these technologies:
 
