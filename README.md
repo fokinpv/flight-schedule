@@ -1,18 +1,37 @@
-Flight Service
+Flight Schedule
 ===
-a service to create and manage flight schedules
+a simple service to manage and search in flight schedules with simple auth system 
 
-How to run
+
+In this project I used these technologies:
+
+    python version: 3.7.0
+    PostgreSQL (to store flight schedules)
+    Django (as a framework) with django restframework
+
+
+Run
 ---
 this application can run dev and prod mode
 to run application in dev mode run:
 
-    make migrate # to create database for fist time
-    make runserver to runserver
+    make migrate    # to create database for first time
+    make runserver  #to runserver
 
-to run tests:
+
+Test and Build
+
+to run test or build application, we have make commands. So, to run tests:
+
+Note: please install python3.7 before run make command
+
+To test application
 
     make test
+
+Run app
+
+    make runserver
 
 to create docker image run:
 
@@ -25,6 +44,12 @@ to run application with docker-compose
 
 
 Exposed RESTAPIs
+
+after application started you can call rest apis to regiser user, login , create and update 
+flight schedules and also search for them.
+
+Postman Docs: https://documenter.getpostman.com/view/836811/S1Zw8qVa
+
 ---
 create user using username, password and email
 
@@ -192,10 +217,3 @@ search for a flight schedule, user can pass ```flight_name```, ```scheduled_date
            when no flight schedule found
         401:
            when authorization data is invalid
-
-
-Library and tools
----
-    Django==2.2.2
-    djangorestframework==3.9.4
-    djangorestframework-jwt==1.11.0
