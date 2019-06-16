@@ -19,6 +19,9 @@ startapp:
 freeze_requirements:
 	pip freeze > $(REQ_FILE) 
 
+install_requirements:
+	pip install -r $(REQ_FILE) 	
+
 migrate:
 	python manage.py $@ --settings=$(PROJECT_NAME).settings.$(ENV)
 

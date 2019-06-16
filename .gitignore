@@ -10,3 +10,5 @@ backup
 venv
 .coverage
 deployments/postgres
+static/*
+!static/.gitkeep

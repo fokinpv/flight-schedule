@@ -8,6 +8,13 @@ application url on heroku
 
     https://flight-schedule-service.herokuapp.com/
 
+this is the base url for apis so api urls will be:
+
+    https://flight-schedule-service.herokuapp.com/flights/
+    https://flight-schedule-service.herokuapp.com/users/register/
+    https://flight-schedule-service.herokuapp.com/users/login/
+
+
 In this project I used these technologies:
 
     python version: 3.7.0
@@ -15,28 +22,22 @@ In this project I used these technologies:
     Django (as a framework) with django restframework
 
 
-Run
+Run 
 ---
-this application can run dev and prod mode
-to run application in dev mode run:
+to run application in dev mode flow this instructions:
+Note: please install python3.7 and virtualenv before run make command
 
-    make migrate    # to create database for first time
-    make runserver  #to runserver
-
-
-Test and Build
-
-to run test or build application, we have make commands. So, to run tests:
-
-Note: please install python3.7 before run make command
+    git clone https://github.com/mirzakhany/flight-schedule.git
+    cd flight-schedule/
+    virtualenv -p python3 .venv   # to create a new virtualenv
+    source .venv/bin/activate     # to active created env
+    make install_requirements     # to install requirements
+    make migrate                  # to create database for first time
+    make runserver                # to runserver
 
 To test application
 
     make test
-
-Run app
-
-    make runserver
 
 to create docker image run:
 
