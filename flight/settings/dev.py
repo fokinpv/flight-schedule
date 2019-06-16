@@ -4,7 +4,7 @@ from .base import *
 SECRET_KEY = 'this-is-a-secret'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
